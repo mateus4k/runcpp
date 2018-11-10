@@ -1,6 +1,5 @@
 #!/bin/bash
-version="1.0"
-###install ./runcpp ~/bin/runcpp
+version="1.1"
 
 usage(){
 cat <<EOF
@@ -13,7 +12,8 @@ Arguments:
 EOF
 }
 
-#argumentos
+# Reading Arguments
+
 case $1 in
     -h | --help | "")
 	usage 
@@ -27,7 +27,8 @@ case $1 in
         ;;
 esac
 
-#checa se o arg 1 é um arquivo com extensao .cpp
+# Checks for file extension
+
 case "$filename" in
     *.cpp)
 	filename=${filename%.*}
@@ -36,15 +37,19 @@ case "$filename" in
 	;;
 esac
 
-# compila e executa o código c++
+# Compiles and run the code
+
 run(){
     g++ $filename.cpp -o $filename; ./$filename
+    echo
 }
 
-# tenta localizar o g++
+# Get g++ location
+
 app=$(which g++)
 
-# compila o código ou instala o compilador e executa
+# Install and run
+
 if [ $app == "/usr/bin/g++" ] ; then
     run
 else
