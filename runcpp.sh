@@ -1,5 +1,5 @@
 #!/bin/bash
-version="1.2"
+version="1.2.1"
 
 usage(){
 cat <<EOF
@@ -40,8 +40,7 @@ esac
 # Compiles and run the code
 
 run(){
-    g++ $filename.cpp -o $filename & ./$filename
-    echo
+    g++ $filename.cpp -o $filename && ./$filename
 }
 
 # Get g++ location
