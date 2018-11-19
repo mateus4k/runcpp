@@ -3,14 +3,13 @@ src="https://banner2.kisspng.com/20180408/pew/kisspng-the-c-programming-language
 
 # runCpp
 
-![compiler][s0] ![Lines of Code][s1] ![HitCount][s2] ![issues][s3] ![stars][s4] ![contributions welcome][s5]
+![version][s0] ![Lines of Code][s1] ![HitCount][s2] ![issues][s3] ![stars][s4]
 
-[s0]: https://img.shields.io/badge/c%2B%2B-compiler-blue.svg
+[s0]: https://img.shields.io/github/release/mateus4k/runcpp.svg
 [s1]: https://tokei.rs/b1/github/mateus4k/runcpp?category=code
 [s2]: http://hits.dwyl.io/mateus4k/runcpp.svg
 [s3]: https://img.shields.io/github/issues/mateus4k/runcpp.svg
 [s4]: https://img.shields.io/github/stars/mateus4k/runcpp.svg
-[s5]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
 
 ## What is RunCpp?
 
