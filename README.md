@@ -22,6 +22,7 @@ RunCpp is an easy tool to compile and run C++ programs
 * [x] Turns on helpful warning messages with -Wall
 * [x] Omits all symbol information from the executable file thus making it as small as possible with -s
 * [x] Turns off a couple non-standard g++ additions with -pedantic-errors
+* [x] Using the most recent revision of the ISO/IEC 14882 standard for the C++ compiler (C++17)
 * [ ] Argument -o to custom output filename
 
 ## Installation

@@ -1,5 +1,5 @@
 #!/bin/bash
-version="1.3"
+version="1.3.1"
 
 usage(){
 cat <<EOF
@@ -8,7 +8,7 @@ Usage: runcpp [arguments] <file.cpp>
 Arguments:	
    -h  or  --help	Print Help (this message) and exit
    -v  or  --version	Print version information and exit
-   -u  or  --update		Update runcpp and exit
+   -u  or  --update	Update runcpp and exit
 EOF
 }
 
@@ -62,4 +62,4 @@ command -v gcc >/dev/null 2>&1 || {
 
 # Compile and run
 
-g++ -Wall -W -s -pedantic-errors "$filename".cpp -o "$filename" && ./"$filename"
+g++ -Wall -W -s -pedantic-errors -std=c++17 "$filename".cpp -o "$filename" && ./"$filename"
