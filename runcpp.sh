@@ -8,7 +8,12 @@ Usage: runcpp [arguments] <file.cpp>
 Arguments:	
    -h  or  --help	Print Help (this message) and exit
    -v  or  --version	Print version information and exit
+   -u  or  --update		Update runcpp and exit
 EOF
+}
+
+update(){
+	cd ~/runcpp && git pull && sudo chmod u+x runcpp.sh && sudo cp runcpp.sh runcpp && sudo mv runcpp /usr/local/bin
 }
 
 # Read Arguments
@@ -18,10 +23,17 @@ case $1 in
 		usage 
 		exit
 		;;
+
     -v | --version)
 		echo "runcpp $version"
 		exit
     	;;
+
+    -u | --update)
+		update && echo "Update successful! \nruncpp $version"
+		exit
+    	;;
+
      *) filename=$1
 	    ;;
 esac
