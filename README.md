@@ -24,15 +24,30 @@ RunCpp is an easy tool to compile and run C++ programs
 * [x] Turns off a couple non-standard g++ additions with -pedantic-errors
 * [ ] Argument -o to custom output filename
 
-
 ## Installation
 You need to follow these steps to run it.
+
 ```sh
 $ git clone https://github.com/mateus4k/runcpp.git
 $ cd runcpp/
 $ sudo chmod u+x runcpp.sh
 $ sudo cp runcpp.sh runcpp; sudo mv runcpp /usr/local/bin
 ```
+
+## Dependencies
+
+This tool need a C/C++ compiler. Run  `which gcc g++` or `command -v gcc g++` to see if you have it installed on your PC.
+If that command doesn't output the code below you will need to install it.
+
+```sh
+/usr/bin/gcc
+/usr/bin/g++
+```
+
+ - For Debian-based distros, run `sudo apt install gcc g++`.
+ - For Arch-based distros, run `sudo pacman -S gcc g++`.
+ - For RedHat-based distros, run `sudo dnf install gcc gcc-c++`.
+ - For OpenSuse-based distros, run `sudo zypper install gcc g++`
 
 ## Usage
 
@@ -50,4 +65,3 @@ Please follow the "fork-and-pull" git workflow.
 3. **Commit** changes to your own branch
 4. **Push** your work back up to your fork
 5. Submit a **Pull request** so that I can review your changes
-
