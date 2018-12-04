@@ -30,7 +30,7 @@ case $1 in
     	;;
 
     -u | --update)
-		update && echo "Update successful! \nruncpp $version"
+		update && echo "Update successful!" && echo "runcpp $version"
 		exit
     	;;
 
