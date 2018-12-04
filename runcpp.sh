@@ -1,60 +1,53 @@
 #!/bin/bash
-version="1.2.1"
+version="1.3"
 
 usage(){
 cat <<EOF
 Usage: runcpp [arguments] <file.cpp>
    or: runcpp [arguments] <file>
-
 Arguments:	
    -h  or  --help	Print Help (this message) and exit
    -v  or  --version	Print version information and exit
 EOF
 }
 
-# Reading Arguments
+# Read Arguments
 
 case $1 in
     -h | --help | "")
-	usage 
-	exit
-        ;;
+		usage 
+		exit
+		;;
     -v | --version)
-	echo "runcpp $version"
-	exit
-        ;;
+		echo "runcpp $version"
+		exit
+    	;;
      *) filename=$1
-        ;;
+	    ;;
 esac
 
-# Checks for file extension
+# Check for file extension
 
 case "$filename" in
     *.cpp)
-	filename=${filename%.*}
+		filename=${filename%.*}
         ;;
-    *)
-	;;
 esac
 
-# Compiles and run the code
+# Check if g++ exists
 
-run(){
-    g++ $filename.cpp -o $filename && ./$filename
+command -v g++ >/dev/null 2>&1 || {
+    echo >&2 "g++ is not installed. Please run sudo apt-get install g++";
+    exit 1;
 }
 
-# Get g++ location
+# Check if gcc exists
 
-app=$(which g++)
+command -v gcc >/dev/null 2>&1 || {
+    echo >&2 "gcc is not installed. Please run sudo apt-get install gcc";
+    exit 1;
+}
 
-# Install and run
+# Compile and run
 
-if [ $app == "/usr/bin/g++" ] ; then
-    run
-else
-    clear
-    echo "Installing g++ compiler..."
-    sudo apt-get install -y -qq g++
-    clear
-    run
-fi
+g++ -Wall -W -s -pedantic-errors "$filename".cpp -o "$filename" && ./"$filename"

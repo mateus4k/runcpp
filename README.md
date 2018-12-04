@@ -19,7 +19,11 @@ RunCpp is an easy tool to compile and run C++ programs
 
 * [x] Arguments --version and --help
 * [x] Check and install dependencies
+* [x] Turns on helpful warning messages with -Wall
+* [x] Omits all symbol information from the executable file thus making it as small as possible with -s
+* [x] Turns off a couple non-standard g++ additions with -pedantic-errors
 * [ ] Argument -o to custom output filename
+
 
 ## Installation
 You need to follow these steps to run it.
