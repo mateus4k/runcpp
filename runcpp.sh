@@ -1,10 +1,10 @@
 #!/bin/bash
-version="1.3.1"
+version="1.4.0"
 
 usage(){
 cat <<EOF
-Usage: runcpp [arguments] <file.cpp>
-   or: runcpp [arguments] <file>
+Usage: runcpp [arguments] <file.c>
+   or: runcpp [arguments] <file.cpp>
 Arguments:	
    -h  or  --help	Print Help (this message) and exit
    -v  or  --version	Print version information and exit
@@ -17,7 +17,6 @@ update(){
 }
 
 # Read Arguments
-
 case $1 in
     -h | --help | "")
 		usage 
@@ -38,28 +37,17 @@ case $1 in
 	    ;;
 esac
 
-# Check for file extension
-
-case "$filename" in
-    *.cpp)
-		filename=${filename%.*}
-        ;;
-esac
-
 # Check if g++ exists
-
 command -v g++ >/dev/null 2>&1 || {
     echo >&2 "g++ is not installed. Please run sudo apt-get install g++";
     exit 1;
 }
 
 # Check if gcc exists
-
 command -v gcc >/dev/null 2>&1 || {
     echo >&2 "gcc is not installed. Please run sudo apt-get install gcc";
     exit 1;
 }
 
 # Compile and run
-
-g++ -Wall -W -s -pedantic-errors -std=c++17 "$filename".cpp -o "$filename" && ./"$filename"
+g++ "$filename" -o "${filename%%.*}" && ./"${filename%%.*}";
